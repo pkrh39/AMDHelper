@@ -77,7 +77,7 @@ export async function patchChromiumApps(){
     fs.mkdirSync(path.join(bashPath, ".."), { recursive: true });
     fs.writeFileSync(bashPath, amdhelperChromiumBash(apps, global.disableGpuMode));
     await exec(`chmod +x ${escapePathSpaces(bashPath)}`);
-    await exec(`chmod 755 ${escapePathSpaces(bashPath)}`);
+    // await exec(`chmod 755 ${escapePathSpaces(bashPath)}`);
     await exec(`chown 0:0 ${escapePathSpaces(bashPath)}`);
 
     fs.writeFileSync(plistPath, amdhelperChromiumPlist);    
